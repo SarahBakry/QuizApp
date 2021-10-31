@@ -141,3 +141,9 @@ text-start {
 input:focus-visible {
   outline: 0px;
 }
+.success {
+  background-color: rgba(89, 172, 89, 0.4);
+}
+.fail {
+  background-color: rgba(199, 88, 88, 0.4);
+}

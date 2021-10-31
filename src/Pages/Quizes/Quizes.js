@@ -45,7 +45,9 @@ const Quizes = (props) => {
               className="btn w-100"
               type="button"
               disabled={!SelectedQuiz}
-              onClick={() => {}}
+              onClick={() => {
+                history.push("/Take-Quiz", { Quiz: SelectedQuiz });
+              }}
             >
               Take
             </button>
