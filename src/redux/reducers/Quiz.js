@@ -104,10 +104,10 @@ const QuizReducer = (state = initialState, action) => {
         Data: [...Data],
       };
     case DELETE_QUIZ:
-      Data = Data.filter((item) => item.id !== action.payload);
+      const Updated = Data.filter((item) => item.id !== action.payload);
       return {
         ...state,
-        Data: [...Data],
+        Data: [...Updated],
       };
     default:
       return state;

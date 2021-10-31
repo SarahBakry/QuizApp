@@ -58,6 +58,7 @@ const Quizes = (props) => {
               disabled={!SelectedQuiz}
               onClick={() => {
                 props.DeleteQuiz(SelectedQuiz?.id);
+                SetSelectedQuiz(undefined);
               }}
             >
               Delete
