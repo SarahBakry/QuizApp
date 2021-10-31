@@ -1,3 +1,5 @@
+import { ADD_QUIZ, UPDATE_QUIZ } from "../actions/Types";
+
 const initialState = {
   Data: [
     {
@@ -86,15 +88,23 @@ const initialState = {
     },
   ],
 };
-const Quiz = (state = initialState, action) => {
+const QuizReducer = (state = initialState, action) => {
+  const Data = state.Data;
+
   switch (action.type) {
-    // case GET_MENU:
-    //   return {
-    //     ...state,
-    //     menu: action.payload,
-    //   };
+    case ADD_QUIZ:
+      return {
+        ...state,
+        Data: [...Data, action.payload],
+      };
+    case UPDATE_QUIZ:
+      Data[action.payload?.Index] = { ...action.payload };
+      return {
+        ...state,
+        Data: [...Data],
+      };
     default:
       return state;
   }
 };
-export default Quiz;
+export default QuizReducer;
