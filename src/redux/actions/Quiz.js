@@ -1,5 +1,5 @@
 import { history } from "../_helpers/history";
-import { ADD_QUIZ, UPDATE_QUIZ } from "./Types";
+import { ADD_QUIZ, DELETE_QUIZ, UPDATE_QUIZ } from "./Types";
 export const AddQuiz = (quiz) => {
   return (dispatch) => {
     let Quiz = { ...quiz };
@@ -31,6 +31,15 @@ export const UpdateQuiz = (Quiz) => {
     dispatch({
       type: UPDATE_QUIZ,
       payload: Quiz,
+    });
+    history.push("/");
+  };
+};
+export const DeleteQuiz = (id) => {
+  return (dispatch) => {
+    dispatch({
+      type: DELETE_QUIZ,
+      payload: id,
     });
     history.push("/");
   };

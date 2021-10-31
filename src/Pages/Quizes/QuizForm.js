@@ -10,7 +10,7 @@ const QuizForm = (props) => {
     history.location.state?.Quiz
       ? history.location.state?.Quiz
       : {
-          title: "ccc",
+          title: "",
 
           description: "",
           url: "",
@@ -18,7 +18,7 @@ const QuizForm = (props) => {
             {
               text: "",
               answers: [
-                { text: "", is_true: true },
+                { text: "", is_true: false },
                 { text: "", is_true: false },
               ],
             },
@@ -68,11 +68,8 @@ const QuizForm = (props) => {
   const submitHandle = (e) => {
     e.preventDefault();
     if (history.location.state?.Quiz) {
-      console.log("UpdateQuiz");
       props.UpdateQuiz(Values);
     } else {
-      console.log("AddQuiz");
-      console.log(Values);
       props.AddQuiz(Values);
     }
   };

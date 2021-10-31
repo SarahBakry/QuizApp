@@ -2,6 +2,7 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import Table from "../../Components/Table/Table";
 import { history } from "../../redux/_helpers/history";
+import { DeleteQuiz } from "../../redux/actions/Quiz";
 
 const Quizes = (props) => {
   const { Data } = props;
@@ -51,7 +52,16 @@ const Quizes = (props) => {
             >
               Take
             </button>
-            <button className="btn w-100">Delete</button>
+            <button
+              className="btn w-100"
+              type="button"
+              disabled={!SelectedQuiz}
+              onClick={() => {
+                props.DeleteQuiz(SelectedQuiz?.id);
+              }}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
@@ -64,5 +74,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  DeleteQuiz,
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Quizes);

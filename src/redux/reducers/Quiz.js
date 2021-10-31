@@ -1,4 +1,4 @@
-import { ADD_QUIZ, UPDATE_QUIZ } from "../actions/Types";
+import { ADD_QUIZ, UPDATE_QUIZ, DELETE_QUIZ } from "../actions/Types";
 
 const initialState = {
   Data: [
@@ -99,6 +99,12 @@ const QuizReducer = (state = initialState, action) => {
       };
     case UPDATE_QUIZ:
       Data[action.payload?.Index] = { ...action.payload };
+      return {
+        ...state,
+        Data: [...Data],
+      };
+    case DELETE_QUIZ:
+      Data = Data.filter((item) => item.id !== action.payload);
       return {
         ...state,
         Data: [...Data],
